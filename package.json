@@ -1,0 +1,22 @@
+{
+  "name": "bloc-chat",
+  "version": "1.0.0",
+  "description": "A simple chat room app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jacoblevine93/bloc-chat.git"
+  },
+  "author": "Jacob Levine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jacoblevine93/bloc-chat/issues"
+  },
+  "homepage": "https://github.com/Jacoblevine93/bloc-chat#readme",
+  "dependencies": {
+    "npm": "^6.4.1"
+  }
+}

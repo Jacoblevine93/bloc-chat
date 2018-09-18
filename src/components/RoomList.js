@@ -5,12 +5,13 @@ import React, { Component } from 'react';
      super(props);
 
      this.state = {
-       rooms: []
+       rooms: [],
+       newRoomName: ""
+    };
 
-     };
+     this.roomsRef = this.props.firebase.database().ref('rooms');
 
-       this.roomsRef = this.props.firebase.database().ref('rooms');
-     }
+   }
 
      componentDidMount() {
         this.roomsRef.on('child_added', snapshot => {
@@ -18,6 +19,17 @@ import React, { Component } from 'react';
           room.key = snapshot.key;
           this.setState({rooms: this.state.rooms.concat( room )})
         });
+    }
+
+    handleChange=(e)=> {
+    this.setState({newRoomName: e.target.value});
+    }
+
+    handleSubmit=(e)=> {
+      e.preventDefault()
+      this.roomsRef.push(
+        {name: this.state.newRoomName}
+      );
     }
 
     render() {
@@ -28,6 +40,13 @@ import React, { Component } from 'react';
         <li key={room.key}>{room.name}</li>
         )}
         </ul>
+        <form onSubmit={this.handleSubmit}>
+        <label>
+        Chat Room Name: &nbsp;
+        <input type="text" value={this.state.newRoomName} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        </form>
         </div>
       );
     }

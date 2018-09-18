@@ -6,7 +6,8 @@ import React, { Component } from 'react';
 
      this.state = {
        rooms: [],
-       newRoomName: ""
+       newRoomName: "",
+       messages: ""
     };
 
      this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -32,18 +33,19 @@ import React, { Component } from 'react';
       );
     }
 
+
     render() {
       return (
         <div>
         <ul className="room-list">
         {this.state.rooms.map((room) =>
-        <li key={room.key}>{room.name}</li>
+        <li onClick={this.props.setActiveRoom(room.name)} key={room.key}>{room.name}</li>
         )}
         </ul>
         <form onSubmit={this.handleSubmit}>
         <label>
         Chat Room Name: &nbsp;
-        <input type="text" value={this.state.newRoomName} onChange={this.handleChange} />
+        <input type="text" value={this.state.newRoomName} onChange={this.handleChange} required />
         </label>
         <input type="submit" value="Submit" />
         </form>

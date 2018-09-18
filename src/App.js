@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
+import MessageList from './components/MessageList.js';
 
   var config = {
     apiKey: "AIzaSyBSSLizzuR528vMP4u3PB04pXJrDdc_dno",
@@ -15,10 +16,31 @@ import RoomList from './components/RoomList.js';
   firebase.initializeApp(config);
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeRoom: ''
+    };
+  }
+
+  setActiveRoom(room) {
+    this.setState({activeRoom: room});
+    console.log("Worked");
+  }
+
   render() {
     return (
       <div className="App">
-      <RoomList firebase={firebase} />
+      <RoomList
+      currentRoom={this.state.activeRoom}
+      setActiveRoom={() => this.setActiveRoom()}
+      firebase={firebase}
+        />
+      <MessageList
+      currentRoom={this.state.activeRoom}
+      firebase={firebase}
+        />
       </div>
     );
   }

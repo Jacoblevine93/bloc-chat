@@ -7,7 +7,6 @@ import React, { Component } from 'react';
      this.state = {
        rooms: [],
        newRoomName: "",
-       messages: ""
     };
 
      this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -18,7 +17,7 @@ import React, { Component } from 'react';
         this.roomsRef.on('child_added', snapshot => {
           const room = snapshot.val();
           room.key = snapshot.key;
-          this.setState({rooms: this.state.rooms.concat( room )})
+          this.setState({rooms: this.state.rooms.concat(room)})
         });
     }
 
@@ -27,19 +26,17 @@ import React, { Component } from 'react';
     }
 
     handleSubmit=(e)=> {
-      e.preventDefault()
-      this.roomsRef.push(
-        {name: this.state.newRoomName}
-      );
+      e.preventDefault();
+      this.roomsRef.push({name: this.state.newRoomName});
+      this.setState({newRoomName: ''});
     }
-
 
     render() {
       return (
         <div>
         <ul className="room-list">
         {this.state.rooms.map((room) =>
-        <li onClick={this.props.setActiveRoom(room.name)} key={room.key}>{room.name}</li>
+        <li onClick={this.props.setActiveRoom} key={room.key}>{room.name}</li>
         )}
         </ul>
         <form onSubmit={this.handleSubmit}>

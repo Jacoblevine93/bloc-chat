@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 
      this.state = {
        rooms: [],
-       newRoomName: "",
+       newRoomName: ""
     };
 
      this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -22,7 +22,7 @@ import React, { Component } from 'react';
     }
 
     handleChange=(e)=> {
-    this.setState({newRoomName: e.target.value});
+      this.setState({newRoomName: e.target.value});
     }
 
     handleSubmit=(e)=> {
@@ -36,7 +36,7 @@ import React, { Component } from 'react';
         <div>
         <ul className="room-list">
         {this.state.rooms.map((room) =>
-        <li onClick={this.props.setActiveRoom} key={room.key}>{room.name}</li>
+        <li onClick={() => this.props.setActiveRoom(room)} key={room.key}>{room.name}</li>
         )}
         </ul>
         <form onSubmit={this.handleSubmit}>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
@@ -18,7 +17,6 @@ import MessageList from './components/MessageList.js';
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       activeRoom: '',
       username: ''
@@ -28,7 +26,6 @@ class App extends Component {
 
   setActiveRoom=(room)=> {
     this.setState({activeRoom: room.key});
-    console.log(this.state.activeRoom);
   }
 
   render() {

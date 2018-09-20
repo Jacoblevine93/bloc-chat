@@ -22,7 +22,6 @@ class MessageList extends Component {
   }
 
     render() {
-      console.log(this.props.currentRoom)
       return (
         <div>
         <ul className="message-list">

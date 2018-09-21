@@ -19,7 +19,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeRoom: '',
+      activeRoom: '1',
       username: null
 
     };
@@ -31,7 +31,6 @@ class App extends Component {
 
   setUser=(user)=> {
     this.setState({username: user});
-    console.log(user.displayName)
   }
 
   render() {
@@ -44,6 +43,7 @@ class App extends Component {
         />
       <MessageList
       currentRoom={this.state.activeRoom}
+      currentUser={this.state.username}
       firebase={firebase}
         />
       <User

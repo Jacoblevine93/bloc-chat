@@ -24,9 +24,8 @@ class User extends Component {
   }
 
   displayUser=(currentUser)=> {
-    console.log(currentUser)
-    if (currentUser !== null) {return currentUser.displayName;}
-    else {return 'Guest'}
+    if (currentUser !== 'Guest') {return currentUser.displayName;}
+    else {return currentUser}
   }
 
   render() {

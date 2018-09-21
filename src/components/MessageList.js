@@ -27,13 +27,15 @@ class MessageList extends Component {
 
   handleSubmit=(e)=> {
     e.preventDefault();
+    var user = this.props.currentUser;
+    if (user !== 'Guest') {user = this.props.currentUser.displayName}
     var newMessage = {
-      username: this.props.currentUser,
+      username: user,
       content: this.state.newMessage,
       roomID: this.props.currentRoom,
       timeStamp: this.props.firebase.database.ServerValue.TIMESTAMP,
     }
-      console.log(newMessage);
+
       this.messagesRef.push(newMessage);
       this.setState({newMessage: ''});
   }
@@ -48,7 +50,10 @@ class MessageList extends Component {
         </ul>
         <h1>test</h1>
         <form onSubmit={this.handleSubmit}>
+        <label>
+        Create New Message:
         <input type="text" onChange={this.handleChange} value={this.state.newMessage} />
+        </label>
         <input type="submit" value="Send" />
         </form>
         </div>

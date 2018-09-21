@@ -20,7 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: '1',
-      username: null
+      username: 'Guest'
 
     };
   }
@@ -30,7 +30,9 @@ class App extends Component {
   }
 
   setUser=(user)=> {
+    if (user === null) {user = 'Guest'}
     this.setState({username: user});
+    console.log(this.state.username)
   }
 
   render() {

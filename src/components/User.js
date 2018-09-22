@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './User.css';
 
 class User extends Component {
   constructor(props) {
@@ -30,11 +31,11 @@ class User extends Component {
 
   render() {
     return (
-      <div className="User">
-      <p>{this.displayUser(this.props.currentUser)}</p>
+      <section id="user-section">
+      <p> User: {this.displayUser(this.props.currentUser)}</p>
       <button onClick={this.signIn}>Sign In</button>
       <button onClick={this.signOut}>Sign Out</button>
-      </div>
+      </section>
     );
   }
 

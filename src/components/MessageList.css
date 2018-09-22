@@ -1,0 +1,16 @@
+#message-list-section {
+  background-color: #f6f7fb;
+  width: 100%;
+}
+
+#message-username {
+  text-align: left;
+}
+
+#message-content {
+  text-align: left;
+}
+
+#message-timestamp {
+  text-align: right;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MessageList.css';
 
 class MessageList extends Component {
   constructor(props) {
@@ -42,10 +43,15 @@ class MessageList extends Component {
 
     render() {
       return (
-        <div>
+        <section id="message-list-section">
+        <h1>{this.props.currentRoom}</h1>
         <ul className="message-list">
         {this.state.messageList.filter(message => message.roomID === this.props.currentRoom).map((message, index) =>
-        <div key={index}>{message.username}{message.content}{message.sentAt}</div>
+        <div key={index}>
+        <div id="message-username"><b>{message.username}</b></div>
+        <div id="message-content">{message.content}</div>
+        <div id="message-timestamp">{message.timeStamp}</div>
+        </div>
         )}
         </ul>
         <h1>test</h1>
@@ -56,7 +62,7 @@ class MessageList extends Component {
         </label>
         <input type="submit" value="Send" />
         </form>
-        </div>
+        </section>
       )
     }
   }

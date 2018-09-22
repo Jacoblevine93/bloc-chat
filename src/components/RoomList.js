@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './RoomList.css';
 
  class RoomList extends Component {
    constructor(props) {
@@ -33,10 +34,11 @@ import React, { Component } from 'react';
 
     render() {
       return (
-        <div>
+        <div id="room-list-section">
+        <h1 id="title-tag"> Bloc Chat</h1>
         <ul className="room-list">
         {this.state.rooms.map((room) =>
-        <li onClick={() => this.props.setActiveRoom(room)} key={room.key}>{room.name}</li>
+        <div id="rooms" onClick={() => this.props.setActiveRoom(room)} key={room.key}>{room.name}</div>
         )}
         </ul>
         <form onSubmit={this.handleSubmit}>

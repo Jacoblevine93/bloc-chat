@@ -33,8 +33,8 @@ class User extends Component {
     return (
       <section id="user-section">
       <p> User: {this.displayUser(this.props.currentUser)}</p>
-      <button onClick={this.signIn}>Sign In</button>
-      <button onClick={this.signOut}>Sign Out</button>
+      <button class="btn-sm" onClick={this.signIn}>Sign In</button>
+      <button class="btn-sm" onClick={this.signOut}>Sign Out</button>
       </section>
     );
   }

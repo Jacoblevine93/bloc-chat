@@ -26,6 +26,7 @@ class App extends Component {
   }
 
   setActiveRoom=(room)=> {
+    console.log(room)
     this.setState({activeRoom: room.key});
   }
 
@@ -38,8 +39,8 @@ class App extends Component {
   render() {
     return (
       <div className="App container-fluid">
-        <div id="room-list-row" class="row body">
-          <div class="col-lg-3 left-side">
+        <div id="room-list-row" class="row">
+          <div class="col-lg-3 padding-0">
             <RoomList
             currentRoom={this.state.activeRoom}
             setActiveRoom={this.setActiveRoom}
@@ -51,7 +52,7 @@ class App extends Component {
             firebase={firebase}
             />
           </div>
-          <div class="col-lg-9 right-side">
+          <div class="col-lg-9 padding-0">
             <MessageList
             currentRoom={this.state.activeRoom}
             currentUser={this.state.username}

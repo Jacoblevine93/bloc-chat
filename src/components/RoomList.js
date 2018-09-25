@@ -36,18 +36,34 @@ import './RoomList.css';
       return (
         <div id="room-list-section">
         <h1 id="title-tag"> Bloc Chat</h1>
+        <button type="button" id="modal-button" data-toggle="modal" data-target="#myModal">New Room</button>
+          <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+              </div>
+              <div class="modal-body">
+              <form onSubmit={this.handleSubmit}>
+              <label>
+              Chat Room Name: &nbsp;<br />
+              <input type="text" value={this.state.newRoomName} onChange={this.handleChange} required />
+              </label>
+              <input type="submit" value="Submit" />
+              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <ul className="room-list">
         {this.state.rooms.map((room) =>
         <div id="rooms" onClick={() => this.props.setActiveRoom(room)} key={room.key}>{room.name}</div>
         )}
         </ul>
-        <form onSubmit={this.handleSubmit}>
-        <label>
-        Chat Room Name: &nbsp;
-        <input type="text" value={this.state.newRoomName} onChange={this.handleChange} required />
-        </label>
-        <input type="submit" value="Submit" />
-        </form>
         </div>
       );
     }

@@ -2,3 +2,39 @@
   background-color: #dedede;
   height: 100%;
 }
+
+#rooms {
+  cursor: default;
+  text-align: left;
+  padding-left: 20px;
+  color: #9ea0a2;
+}
+
+#rooms:hover, #rooms:active {
+  color: #4a4a4a;
+}
+
+.btn, .btn-info, .btn-lg {
+  background-color: #f6f7fb;
+}
+
+h1 {
+  display: inline-block;
+  padding:  30px 20px 10px 30px;
+  color: #4a4a4a;
+}
+
+#modal-button {
+  background:    #f6f7fb;
+  border-radius: 3px;
+  padding:       8px 16px;
+  color:         #9ea0a2;
+  display:       inline-block;
+  font:          normal 700 15px/1 "Calibri", sans-serif;
+  text-align:    center;
+  text-shadow:   none;
+}
+
+#modal-title {
+  text-align: center;
+}

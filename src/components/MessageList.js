@@ -45,22 +45,16 @@ class MessageList extends Component {
       return (
         <section id="message-list-section">
         <h1>{this.props.currentRoom}</h1>
-        <ul className="message-list">
+        <ul className="message-list pre-scrollable">
         {this.state.messageList.filter(message => message.roomID === this.props.currentRoom).map((message, index) =>
-        <div key={index}>
-        <div id="message-username"><b>{message.username}</b></div>
-        <div id="message-content">{message.content}</div>
-        <div id="message-timestamp">{message.timeStamp}</div>
-        </div>
+        <div id="messages" key={index}><span id="username"><b>{message.username}</b></span><span id="timestamp">{message.timeStamp}</span><div id="message-content">{message.content}</div></div>
         )}
         </ul>
-        <h1>test</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form class="form-inline" onSubmit={this.handleSubmit}>
         <label>
-        Create New Message:
-        <input type="text" onChange={this.handleChange} value={this.state.newMessage} />
+        <input id="message-field" class="form-control input-lg" placeholder="Write your message here..." type="text" onChange={this.handleChange} value={this.state.newMessage} />
         </label>
-        <input type="submit" value="Send" />
+        <button id="submit-button" type="submit">Send</button>
         </form>
         </section>
       )

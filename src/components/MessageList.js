@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
 import './MessageList.css';
 
 class MessageList extends Component {
@@ -45,15 +46,25 @@ class MessageList extends Component {
       return (
         <section id="message-list-section">
         <h1>{this.props.currentRoom}</h1>
+        <div id="#message-list-holder">
         <ul className="message-list pre-scrollable">
         {this.state.messageList.filter(message => message.roomID === this.props.currentRoom).map((message, index) =>
-        <div id="messages" key={index}><span id="username"><b>{message.username}</b></span><span id="timestamp">{message.timeStamp}</span><div id="message-content">{message.content}</div></div>
+        <div class="messages" key={index}>
+        <table className="message-table" width="100%">
+        <tr>
+        <td className="username"><b>{message.username}</b></td>
+        <td className="timestamp"><i><Moment format="h:mm a">{message.timeStamp}</Moment></i></td>
+        </tr>
+        <tr>
+        <td className="message-content">{message.content}</td>
+        </tr>
+        </table>
+        </div>
         )}
         </ul>
+        </div>
         <form class="form-inline" onSubmit={this.handleSubmit}>
-        <label>
         <input id="message-field" class="form-control input-lg" placeholder="Write your message here..." type="text" onChange={this.handleChange} value={this.state.newMessage} />
-        </label>
         <button id="submit-button" type="submit">Send</button>
         </form>
         </section>

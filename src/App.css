@@ -34,4 +34,20 @@
 
 .container-fluid {
   min-height: 100%!important;
+  height: 100%;
+}
+
+.row {
+  min-height: 100%!important;
+  height: 100%;
+}
+
+.col-lg-9 {
+  height:100%;
+  vertical-align: bottom;
+}
+
+.col-lg-3 {
+  background-color: #dedede;
+  height:100%;
 }

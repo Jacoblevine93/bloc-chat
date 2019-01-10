@@ -45,10 +45,10 @@ class MessageList extends Component {
     render() {
       return (
         <section id="message-list-section">
-        <h1>{this.props.currentRoom}</h1>
+        <h1>{this.props.currentRoom.name}</h1>
         <div id="#message-list-holder">
         <ul className="message-list pre-scrollable">
-        {this.state.messageList.filter(message => message.roomID === this.props.currentRoom).map((message, index) =>
+        {this.state.messageList.filter(message => message.roomID === this.props.currentRoom.key).map((message, index) =>
         <div class="messages" key={index}>
         <table className="message-table" width="100%">
         <tr>

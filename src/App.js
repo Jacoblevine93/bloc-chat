@@ -19,7 +19,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeRoom: '1',
+      activeRoom: 'Room 1',
       username: 'Guest'
 
     };
@@ -27,7 +27,7 @@ class App extends Component {
 
   setActiveRoom=(room)=> {
     console.log(room.key)
-    this.setState({activeRoom: room.key});
+    this.setState({activeRoom: room});
   }
 
   setUser=(user)=> {

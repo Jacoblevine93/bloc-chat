@@ -14,13 +14,14 @@ import './RoomList.css';
 
    }
 
-     componentDidMount() {
-        this.roomsRef.on('child_added', snapshot => {
-          const room = snapshot.val();
-          room.key = snapshot.key;
-          this.setState({rooms: this.state.rooms.concat(room)})
-        });
-    }
+   componentDidMount() {
+      this.roomsRef.on('child_added', snapshot => {
+        const room = snapshot.val();
+        room.key = snapshot.key;
+        if (!this.props.activeRoom) this.props.setActiveRoom(room);
+        this.setState({rooms: this.state.rooms.concat(room)})
+      });
+  }
 
     handleChange=(e)=> {
       this.setState({newRoomName: e.target.value});
